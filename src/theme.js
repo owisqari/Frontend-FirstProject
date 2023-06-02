@@ -1,3 +1,4 @@
+// check system theme
 if (
   localStorage.theme === "dark" ||
   (!("theme" in localStorage) &&
@@ -8,16 +9,19 @@ if (
   document.documentElement.classList.remove("dark");
 }
 
+// set system theme to dark
 function setDarkTheme() {
   document.documentElement.classList.add("dark");
   localStorage.theme = "dark";
 }
 
+// set system theme to light
 function setLightTheme() {
   document.documentElement.classList.remove("dark");
   localStorage.theme = "light";
 }
 
+// set system theme on toggle
 function onThemeSwitcherItemClick(event) {
   const theme = event.target.dataset.theme;
 
@@ -31,6 +35,7 @@ function onThemeSwitcherItemClick(event) {
   }
 }
 
+// button click event to toggle theme
 const themeSwitcherItems = document.querySelectorAll("#theme-switcher");
 themeSwitcherItems.forEach((item) => {
   item.addEventListener("click", onThemeSwitcherItemClick);
