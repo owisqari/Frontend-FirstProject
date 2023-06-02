@@ -1,42 +1,36 @@
-// check system theme
-if (
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+const darkIcon = document.querySelector("#dark-icon");
+const lightIcon = document.querySelector("#light-icon");
 
-// set system theme to dark
-function setDarkTheme() {
-  document.documentElement.classList.add("dark");
-  localStorage.theme = "dark";
-}
+const userTheme = localStorage.getItem("theme");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-// set system theme to light
-function setLightTheme() {
-  document.documentElement.classList.remove("dark");
-  localStorage.theme = "light";
-}
+const iconToggle = () => {
+  darkIcon.classList.toggle("display-none");
+  lightIcon.classList.toggle("display-none");
+};
 
-// set system theme on toggle
-function onThemeSwitcherItemClick(event) {
-  const theme = event.target.dataset.theme;
-
-  if (theme === "system") {
-    localStorage.removeItem("theme");
-    setSystemTheme();
-  } else if (theme === "dark") {
-    setDarkTheme();
-  } else {
-    setLightTheme();
+const themeCheck = () => {
+  if (userTheme === "dark" || (!userTheme && systemTheme)) {
+    document.documentElement.classList.add("dark");
+    darkIcon.classList.add("display-none");
+    return;
   }
-}
+  lightIcon.classList.add("display-none");
+};
 
-// button click event to toggle theme
-const themeSwitcherItems = document.querySelectorAll("#theme-switcher");
-themeSwitcherItems.forEach((item) => {
-  item.addEventListener("click", onThemeSwitcherItemClick);
-});
+const themeSwitch = () => {
+  if (document.documentElement.classList.contains("dark")) {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    iconToggle();
+    return;
+  }
+  document.documentElement.classList.add("dark");
+  localStorage.setItem("theme", "dark");
+  iconToggle();
+};
+
+darkIcon.addEventListener("click", themeSwitch);
+lightIcon.addEventListener("click", themeSwitch);
+
+themeCheck();
