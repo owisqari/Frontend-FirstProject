@@ -1,3 +1,4 @@
+// get weather data from openweathermap.org
 const getWeatherData = async (city) => {
   if (city === "") {
     alert("Please enter a city");
@@ -37,7 +38,17 @@ searchBtn.addEventListener("click", () => {
   const getData = async () => {
     const weatherData = await getWeatherData(city);
     temperature.textContent = `${weatherData.temperature}°C`;
-    condition.textContent = weatherData.condition;
+    if (weatherData.condition === "Clouds") {
+      document.getElementById("conditionIcon").className = "";
+    } else if (weatherData.condition === "Clear") {
+      document.getElementById("conditionIcon").className = "";
+    } else if (weatherData.condition === "Rain") {
+      document.getElementById("conditionIcon").className = "";
+    } else if (weatherData.condition === "Snow") {
+      document.getElementById("conditionIcon").className = "";
+    } else {
+      condition.textContent = weatherData.condition;
+    }
     wind.textContent = `${weatherData.wind} m/s`;
     city.textContent = weatherData.city;
   };
