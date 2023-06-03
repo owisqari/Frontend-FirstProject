@@ -23,6 +23,7 @@ const getWeatherData = async (city) => {
       condition: data.weather[0].main,
       wind: data.wind.speed,
       city: data.name,
+      humidity: data.main.humidity,
     };
     return weatherData;
   }
@@ -37,6 +38,7 @@ const temperature = document.getElementById("temperature");
 const condition = document.getElementById("condition");
 const wind = document.getElementById("wind");
 const city = document.getElementById("city");
+const humidity = document.getElementById("humidity");
 
 // event listener for search button
 searchBtn.addEventListener("click", async () => {
@@ -60,6 +62,7 @@ searchBtn.addEventListener("click", async () => {
     }
     wind.textContent = `${weatherData.wind} m/s`;
     city.textContent = weatherData.city;
+    humidity.textContent = `${weatherData.humidity}%`;
     document.getElementById("searchDetails").classList.remove("hidden");
   };
   getData();
@@ -95,5 +98,8 @@ const getPopularData = async () => {
       `windP${i}`
     ).textContent = `${weatherData.wind} m/s`;
     document.getElementById(`cityP${i}`).textContent = weatherData.city;
+    document.getElementById(
+      `humidityP${i}`
+    ).textContent = `${weatherData.humidity}%`;
   }
 };
