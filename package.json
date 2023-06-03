@@ -1,0 +1,22 @@
+{
+  "name": "frontend-firstproject",
+  "version": "1.0.0",
+  "description": "Weather App",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owisqari/Frontend-FirstProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owisqari/Frontend-FirstProject/issues"
+  },
+  "homepage": "https://github.com/owisqari/Frontend-FirstProject#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}

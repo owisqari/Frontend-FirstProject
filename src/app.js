@@ -1,3 +1,4 @@
+// get weather data from openweathermap.org
 const getWeatherData = async (city) => {
     if (city === "") {
         alert("Please enter a city");
@@ -32,13 +33,25 @@ const wind = document.getElementById("wind");
 const city = document.getElementById("city");
 
 // event listener for search button
-searchBtn.addEventListener("click", () => {
-    const cityInput = searchInput.value;
-
+searchBtn.addEventListener("click", async () => {
     const getData = async () => {
-        const weatherData = await getWeatherData(cityInput);
-        temperature.textContent = `${weatherData.temperature}°C`;
-        condition.textContent = weatherData.condition;
+        const weatherData = await getWeatherData(searchInput.value);
+        temperature.textContent = `${Math.round(weatherData.temperature)}°C`;
+        if (weatherData.condition === "Clouds") {
+            document.getElementById("conditionIcon").className =
+                "fa-solid fa-cloud fa-8x";
+        } else if (weatherData.condition === "Clear") {
+            document.getElementById("conditionIcon").className =
+                "fa-solid fa-cloud fa-8x";
+        } else if (weatherData.condition === "Rain") {
+            document.getElementById("conditionIcon").className =
+                "fa-solid fa-cloud fa-8x";
+        } else if (weatherData.condition === "Snow") {
+            document.getElementById("conditionIcon").className =
+                "fa-solid fa-cloud fa-8x";
+        } else {
+            condition.textContent = weatherData.condition;
+        }
         wind.textContent = `${weatherData.wind} m/s`;
         city.textContent = weatherData.city;
     };
@@ -53,11 +66,25 @@ const getPopularData = async () => {
     // it loops finding the elements Ids and inserting data
     for (let i = 1; i <= 3; i++) {
         const weatherData = await getWeatherData(popualrCities[i - 1]);
-        document.getElementById(
-            `temperatureP${i}`
-        ).textContent = `${weatherData.temperature}°C`;
-        document.getElementById(`conditionP${i}`).textContent =
-            weatherData.condition;
+        document.getElementById(`temperatureP${i}`).textContent = `${Math.round(
+            weatherData.temperature
+        )}°C`;
+        if (weatherData.condition === "Clouds") {
+            document.getElementById(`conditionIconP${i}`).className =
+                "fa-solid fa-cloud fa-6x";
+        } else if (weatherData.condition === "Clear") {
+            document.getElementById(`conditionIconP${i}`).className =
+                "fa-solid fa-cloud fa-6x";
+        } else if (weatherData.condition === "Rain") {
+            document.getElementById(`conditionIconP${i}`).className =
+                "fa-solid fa-cloud fa-6x";
+        } else if (weatherData.condition === "Snow") {
+            document.getElementById(`conditionIconP${i}`).className =
+                "fa-solid fa-cloud fa-6x";
+        } else {
+            document.getElementById(`conditionIconP${i}`).textContent =
+                weatherData.condition;
+        }
         document.getElementById(
             `windP${i}`
         ).textContent = `${weatherData.wind} m/s`;
