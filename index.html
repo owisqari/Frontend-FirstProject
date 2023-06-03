@@ -28,9 +28,106 @@
         },
       };
     </script>
-    <title>Document</title>
+    <title>The Weather.</title>
   </head>
-  <body>
+  <body onload="getPopularData()">
+    <!-- Nav Start -->
+    <nav class="navbar flex justify-between p-4 mb-10">
+      <a href="/" class="navbar-brand">The Weather.</a>
+      <ul class="navbar-nav flex gap-3">
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Nav End -->
+    <section style= "background-image: url('./img/Default background.jpg')" class="">
+      <!-- Searchbar Start -->
+      <div class="mx-auto md:w-2/3 max-w-640 py-20">
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <input id="searchInput" type="search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ex, Saudi Arabia" required>
+              <button id="searchBtn" type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            </div>
+      </div>
+
+      <!-- Searchbar End -->
+      <!-- Searched Weather Start -->
+      <!-- If you want to change this keep in mind IDs and hidden div and its Id -->
+      <div class="mx-auto md:w-1/3 max-w-640 py-20"> 
+          <div id="searchDetails" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 hidden">
+            <h5 id="city" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
+            <div class="flex justify-between text-center font-normal text-gray-700 dark:text-gray-400">   
+              <h5 id="condition"></h5>
+              <h5 id="wind"></h5>
+              <h5 id="temperature"></h5>
+            </div>
+          </div>
+      </div>
+      <!-- Searched Weather End -->
+    </section>
+    <!-- Popular Cards Start -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- City 1 Don't Chage IDs -->
+        <div class="p-4">
+          <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 id="cityP1" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
+            <div class="flex justify-between text-center font-normal text-gray-700 dark:text-gray-400">   
+              <h5 id="conditionP1"></h5>
+              <h5 id="windP1"></h5>
+              <h5 id="temperatureP1"></h5>
+            </div>
+          </div>
+        </div>
+        <!-- City 2 Don't Chage IDs -->
+        <div class="p-4">
+          <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 id="cityP2" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
+            <div class="flex justify-between text-center font-normal text-gray-700 dark:text-gray-400">   
+              <h5 id="conditionP2"></h5>
+              <h5 id="windP2"></h5>
+              <h5 id="temperatureP2"></h5>
+            </div>
+          </div>
+        </div>
+        <!-- City 3 Don't Chage IDs -->
+        <div class="p-4">
+          <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 id="cityP3" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
+            <div class="flex justify-between text-center font-normal text-gray-700 dark:text-gray-400">   
+              <h5 id="conditionP3"></h5>
+              <h5 id="windP3"></h5>
+              <h5 id="temperatureP3"></h5>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Popular Cards End -->
+    <!-- Footer Start -->
+    <footer class="py-4 bg-gray-100">
+      <div class="container mx-auto">
+        <div class="flex flex-wrap justify-between items-center">
+          <div class="">
+            <p class="text-gray-500 text-sm">Copyright &copy; 2023 Your Company</p>
+          </div>
+          <div class="">
+            <ul class="flex flex-wrap">
+              <li class="mx-2">
+                <a href="#" class="text-gray-500 text-sm">About</a>
+              </li>
+              <li class="mx-2">
+                <a href="#" class="text-gray-500 text-sm">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+
     <script src="./src/theme.js"></script>
     <script src="./src/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
