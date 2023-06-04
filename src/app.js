@@ -50,7 +50,7 @@ searchBtn.addEventListener("click", async () => {
         "fa-solid fa-cloud fa-8x";
     } else if (weatherData.condition === "Clear") {
       document.getElementById("conditionIcon").className =
-        "fa-brands fa-skyatlas fa-8x";
+        "fa-solid fa-cloud-sun fa-8x";
     } else if (weatherData.condition === "Rain") {
       document.getElementById("conditionIcon").className =
         "fa-solid fa-cloud-rain fa-8x";
@@ -83,7 +83,7 @@ const getPopularData = async () => {
         "fa-solid fa-cloud fa-6x";
     } else if (weatherData.condition === "Clear") {
       document.getElementById(`conditionIconP${i}`).className =
-        "fa-brands fa-skyatlas fa-6x";
+        "fa-solid fa-cloud-sun fa-6x";
     } else if (weatherData.condition === "Rain") {
       document.getElementById(`conditionIconP${i}`).className =
         "fa-solid fa-cloud-rain fa-6x";
