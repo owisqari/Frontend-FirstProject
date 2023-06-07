@@ -3,7 +3,9 @@
 Weather App
 
 This is a simple weather app that uses the OpenWeatherMap API to display weather information for the city that the user searches for.
-Getting Started
+Getting Started.
+
+lIVE DEMO: https://sunny-weather-app1.netlify.app
 
 To get started, you will need to:
 
