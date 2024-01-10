@@ -18,5 +18,8 @@
   "homepage": "https://github.com/owisqari/Frontend-FirstProject#readme",
   "devDependencies": {
     "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }
